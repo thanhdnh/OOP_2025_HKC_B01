@@ -12,9 +12,29 @@
     g) Viết hàm tìm kiếm mặt hàng theo khoảng giá.
     h) Viết hàm sắp xếp các mặt hàng theo giá.
     Bổ sung hàm main để thực thi kết quả.
+    *********************************************
+    Lab 01:
+    Viết chương trình mô phỏng cho việc quản lý mua bán
+    hàng hoá tại siêu thị nói trên với các chức năng:
+    - Cho phép người dùng thêm các mặt hàng vào giỏ hàng
+    (với số lượng cho phép, tức nhỏ hơn số lượng hàng còn
+    trong siêu thị). Giỏ hàng có thể chứa nhiều mặt hàng.
+    - Cho phép thực thi thao tác thanh toán: tính tổng giá
+    cần phải chi trả cho tất cả các mặt hàng trong giỏ, đồng
+    thời, sau khi thanh toán, số lượng hàng trong siêu thị
+    cũng sẽ giảm đi tương ứng với số lượng hàng đã mua.
+    - Cho phép siêu thị bổ sung thêm hàng hoá vào kho (thay
+    đổi lại số lượng hàng có trong kho).
+    - Giải sử, khi mua hàng, sẽ có voucher khuyến mãi (dưới
+    dạng một mã REDUCE10, REDUCE20, ...), cho phép
+    giảm giá tổng số tiền thanh toán tương ứng với phần trăm
+    giảm giá. Ví dụ, mã REDUCE10 sẽ giảm 10% tổng số tiền
+    thanh toán, REDUCE20 sẽ giảm 20% tổng số tiền thanh toán.
+    Hãy tạo ra một phiên bản thanh toán khác (cùng tên với
+    phương thức thanh toán ban đầu nhưng khác tham số cho phép
+    thêm mã giảm giá để tính toán tổng số tiền thanh toán
+    sau khi giảm giá).
 */
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
 
 public class Program{
     public struct Product{
