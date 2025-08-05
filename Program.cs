@@ -81,7 +81,23 @@ public class Program{
         }
         return result;
     }
-
+    
+    public static void SortByPrice()
+    {
+        for (int i = 0; i < products.Length - 1; i++)
+        {
+            for (int j = 0; j < products.Length - 1 - i; j++)
+            {
+                if (products[j].price > products[j + 1].price)
+                {
+                    // Swap
+                    Product temp = products[j];
+                    products[j] = products[j + 1];
+                    products[j + 1] = temp;
+                }
+            }
+        }
+    }
     public static void Main(string[] args)
     {
         Console.Clear();
@@ -93,6 +109,9 @@ public class Program{
         Console.WriteLine("--------Searching---------");
         PrintAListOfProducts(SearchByName("Gạo"));
         PrintAListOfProducts(SearchByPriceRange(10000, 20000));
-        
+
+        Console.WriteLine("--------Sorting---------");
+        SortByPrice();
+        PrintAllProducts();
     }
 }
