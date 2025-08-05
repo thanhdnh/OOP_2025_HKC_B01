@@ -13,7 +13,7 @@
     h) Viết hàm sắp xếp các mặt hàng theo giá.
     Bổ sung hàm main để thực thi kết quả.
     *********************************************
-    Lab 01:
+    >> Lab 01:
     Viết chương trình mô phỏng cho việc quản lý mua bán
     hàng hoá tại siêu thị nói trên với các chức năng:
     - Cho phép người dùng thêm các mặt hàng vào giỏ hàng
