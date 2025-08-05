@@ -36,21 +36,27 @@
     sau khi giảm giá).
 */
 
-public class Program{
-    public struct Product{
+using System.Security.Cryptography.X509Certificates;
+
+public class Program
+{
+    public struct Product
+    {
         public string name;
         public decimal price;
         public int quantity;
     }
     public static Product[] products = new Product[3];
     public static void InputProduct(ref Product x, string name,
-                                decimal price, int quantity){
+                                decimal price, int quantity)
+    {
         x.name = name;
         x.price = price;
         x.quantity = quantity;
     }
     public static Product InputProduct(string name,
-                            decimal price, int quantity){
+                            decimal price, int quantity)
+    {
         Product x;
         x.name = name;
         x.price = price;
@@ -60,7 +66,7 @@ public class Program{
 
     public static string ToString(Product x)
     {
-        return $"Name: {x.name}, Price: {x.price}, Quantity: { x.quantity} ";
+        return $"Name: {x.name}, Price: {x.price}, Quantity: {x.quantity} ";
     }
     public static void PrintAllProducts()
     {
@@ -94,14 +100,14 @@ public class Program{
         List<Product> result = new List<Product>();
         foreach (Product product in products)
         {
-            if (product.price>=minPrice && product.price<=maxPrice)
+            if (product.price >= minPrice && product.price <= maxPrice)
             {
                 result.Add(product);
-            } 
+            }
         }
         return result;
     }
-    
+
     public static void SortByPrice()
     {
         for (int i = 0; i < products.Length - 1; i++)
@@ -118,10 +124,56 @@ public class Program{
             }
         }
     }
+    /* Bài 2
+    ##################
+    
+    */
+    public struct Point
+    {
+        public float x;
+        public float y;
+    }
+    public struct Coords
+    {
+        public float x;
+        public float y;
+    }
+    public struct Vector
+    {
+        public Point start;
+        public Point end;
+    }
+
+    public static Coords GetCoordinates(Vector v)
+    {
+        Coords coordinates;
+        coordinates.x = v.end.x - v.start.x;
+        coordinates.y = v.end.y - v.start.y;
+        return coordinates;
+    }
+
+    public static Coords AddVectors(Vector v1, Vector v2)
+    {
+        Coords coords1 = GetCoordinates(v1);
+        Coords coords2 = GetCoordinates(v2);
+
+        Coords result;
+        result.x = coords1.x + coords2.x;
+        result.y = coords1.y + coords2.y;
+        return result;
+    }
+    public static float ScalarProduct(Vector v1, Vector v2)
+    { 
+        Coords A = GetCoordinates (v1);
+        Coords B = GetCoordinates(v2);
+        return (A.x * B.x) + (A.y * B.y);
+     }
+
+
     public static void Main(string[] args)
     {
         Console.Clear();
-        InputProduct(ref products[0], "Gạo", 15000, 5);
+        /*InputProduct(ref products[0], "Gạo", 15000, 5);
         products[1] = InputProduct("Thịt", 100000, 2);
         products[2] = InputProduct("Rau", 5000, 1);
         //Console.WriteLine(ToString(products[0]));
@@ -132,6 +184,39 @@ public class Program{
 
         Console.WriteLine("--------Sorting---------");
         SortByPrice();
-        PrintAllProducts();
+        PrintAllProducts();*/
+
+        Point[] points = new Point[3];
+        points[0] = new Point { x = 1, y = 2 };
+        points[1] = new Point { x = 3, y = 4 };
+        points[2] = new Point { x = 5, y = 6 };
+
+        Vector[] vectors = new Vector[3];
+        vectors[0] = new Vector { start = points[0], end = points[1] };
+        vectors[1] = new Vector { start = points[1], end = points[2] };
+        vectors[2] = new Vector { start = points[0], end = points[2] };
+        
+        Coords c = AddVectors(vectors[0], vectors[1]);
+        Console.WriteLine($"Toạ độ của vector tổng: ({c.x}, {c.y})");
+
+        float scalarProduct = ScalarProduct(vectors[0], vectors[1]);
+        Console.WriteLine($"Tích vô hướng của 2 vector: {scalarProduct}");
     }
 }
+
+/** Bài tập 2 **/
+/*
+    Một struct Point mô tả cho một điểm trong hệ toạ độ
+    Descartes 2 chiều với hai thuộc tính toạ độ x, y.
+    1/ Khai báo struct Point nói trên.
+    2/ Một vector sẽ được hình thành dựa trên 2 Point. Hãy
+    khai báo một struct Vector2 với hai Point nói trên.
+    3/ Xác định toạ độ của một vector.
+    4/ Xác định vector tổng của 2 vector.
+    5/ Xác định tích vô hướng của 2 vector.
+    Trong hàm main, tạo một List chứa 3 Point và sau đó
+    tạo các tổ hợp các cặp Point để tạo thành các vector
+    tương ứng (3 vector). Sau đó, dựa trên 3 vector để kiểm tra
+    các kết quả của các câu 3-5.
+
+*/
