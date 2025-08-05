@@ -49,6 +49,13 @@ public class Program{
             Console.WriteLine(ToString(products[i]));
         }
     }
+    public static void PrintAListOfProducts(List<Product> prd)
+    {
+        for (int i = 0; i < prd.Count; i++)
+        {
+            Console.WriteLine(ToString(prd[i]));
+        }
+    }
     public static List<Product> SearchByName(string kw)
     {
         List<Product> result = new List<Product>();
@@ -57,7 +64,7 @@ public class Program{
             if (product.name.Contains(kw))
             {
                 result.Add(product);
-            } 
+            }
         }
         return result;
     }
@@ -83,5 +90,9 @@ public class Program{
         products[2] = InputProduct("Rau", 5000, 1);
         //Console.WriteLine(ToString(products[0]));
         PrintAllProducts();
+        Console.WriteLine("--------Searching---------");
+        PrintAListOfProducts(SearchByName("Gạo"));
+        PrintAListOfProducts(SearchByPriceRange(10000, 20000));
+        
     }
 }
