@@ -25,7 +25,7 @@
     cũng sẽ giảm đi tương ứng với số lượng hàng đã mua.
     - Cho phép siêu thị bổ sung thêm hàng hoá vào kho (thay
     đổi lại số lượng hàng có trong kho).
-    - Giải sử, khi mua hàng, sẽ có voucher khuyến mãi (dưới
+    - Giả sử, khi mua hàng, sẽ có voucher khuyến mãi (dưới
     dạng một mã REDUCE10, REDUCE20, ...), cho phép
     giảm giá tổng số tiền thanh toán tương ứng với phần trăm
     giảm giá. Ví dụ, mã REDUCE10 sẽ giảm 10% tổng số tiền
